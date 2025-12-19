@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="圣诞祝福H5小程序 - 为您的特别的人送上专属圣诞祝福">
+    <meta property="og:title" content="🎄 圣诞祝福来啦！">
+    <meta property="og:description" content="收到一份特别的圣诞祝福">
+    <meta property="og:type" content="website">
+    
+    <title>🎄 圣诞祝福 | Merry Christmas</title>
+    
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/create.css" id="create-style">
+    
+    <!-- 外部依赖 -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- 雪花画布 -->
+    <canvas id="snow-canvas"></canvas>
+    
+    <!-- 创建页面 -->
+    <div id="create-page" class="page">
+        <div class="container">
+            <h1 class="title">🎄 圣诞祝福生成器</h1>
+            <p class="subtitle">为特别的TA定制专属圣诞祝福</p>
+            
+            <div class="form-section">
+                <!-- 发送人姓名 -->
+                <div class="form-group">
+                    <label for="sender-name">您的名字</label>
+                    <input type="text" id="sender-name" placeholder="请输入您的名字" maxlength="20">
+                </div>
+                
+                <!-- 关系选择 -->
+                <div class="form-group">
+                    <label>选择你们的关系</label>
+                    <div class="relation-cards">
+                        <div class="relation-card" data-relation="lover">
+                            <div class="icon">💑</div>
+                            <div class="name">恋人</div>
+                        </div>
+                        <div class="relation-card" data-relation="friend">
+                            <div class="icon">👫</div>
+                            <div class="name">朋友</div>
+                        </div>
+                        <div class="relation-card" data-relation="family">
+                            <div class="icon">👨‍👩‍👧</div>
+                            <div class="name">家人</div>
+                        </div>
+                        <div class="relation-card" data-relation="colleague">
+                            <div class="icon">🤝</div>
+                            <div class="name">同事</div>
+                        </div>
+                        <div class="relation-card" data-relation="neighbor">
+                            <div class="icon">🏡</div>
+                            <div class="name">邻居</div>
+                        </div>
+                        <div class="relation-card" data-relation="teacher">
+                            <div class="icon">🎓</div>
+                            <div class="name">师生</div>
+                        </div>
+                        <div class="relation-card" data-relation="leader">
+                            <div class="icon">💼</div>
+                            <div class="name">上下级</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 自定义祝福语（可选） -->
+                <div class="form-group">
+                    <div class="custom-message-toggle" id="toggle-custom">
+                        <span>✨ 添加自定义祝福语（可选）</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="custom-message-panel" id="custom-panel">
+                        <textarea id="custom-message" placeholder="写下您想对TA说的话...（留空则使用系统预设祝福语）" maxlength="200"></textarea>
+                        <div class="char-count">0/200</div>
+                    </div>
+                </div>
+                
+                <!-- 生成按钮 -->
+                <button class="btn-generate" id="btn-generate">🎁 生成祝福链接</button>
+            </div>
+            
+            <!-- 生成结果 -->
+            <div class="result-section" id="result-section">
+                <h3>✅ 祝福链接已生成</h3>
+                <div class="link-box">
+                    <input type="text" id="generated-link" readonly>
+                    <button class="btn-copy" id="btn-copy">📋 复制</button>
+                </div>
+                <div class="qrcode-box">
+                    <div id="qrcode"></div>
+                    <p>扫描二维码分享</p>
+                </div>
+                <button class="btn-share" id="btn-share">🎄 直接分享</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 展示页面 -->
+    <div id="display-page" class="page hidden">
+        <div class="scene-container">
+            <!-- 祝福内容 -->
+            <div class="blessing-content">
+                <div class="sender-name" id="display-sender"></div>
+                <div class="relation-badge" id="display-relation"></div>
+                <div class="blessing-text" id="display-blessing"></div>
+                <div class="decoration" id="scene-decoration"></div>
+            </div>
+            
+            <!-- 控制按钮 -->
+            <div class="controls">
+                <button class="btn-control" id="btn-music" title="音乐开关">🔇</button>
+                <button class="btn-control" id="btn-save" title="保存图片">📸</button>
+                <button class="btn-control" id="btn-create" title="创建我的祝福">✨</button>
+            </div>
+        </div>
+        
+        <!-- 背景音乐 -->
+        <audio id="bg-music" loop>
+            <source src="assets/audio/jingle-bells.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    
+    <!-- JavaScript文件 -->
+    <script src="js/blessings.js"></script>
+    <script src="js/snow.js"></script>
+    <script src="js/create.js"></script>
+    <script src="js/display.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,131 @@
+/* 邻居场景 - 温暖绿黄 */
+
+body.scene-neighbor {
+    background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+}
+
+.scene-neighbor .scene-container {
+    background: radial-gradient(circle at 50% 50%, rgba(168, 224, 99, 0.3), transparent);
+}
+
+.scene-neighbor .blessing-content {
+    position: relative;
+    text-align: center;
+    padding: 60px 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.scene-neighbor .sender-name {
+    font-size: 1.2rem;
+    color: #f1f8e9;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: zoomIn 1s ease-out 0.5s forwards;
+}
+
+.scene-neighbor .relation-badge {
+    font-size: 1.5rem;
+    color: #dcedc8;
+    margin-bottom: 30px;
+    font-weight: 600;
+    opacity: 0;
+    animation: zoomIn 1s ease-out 1s forwards;
+}
+
+.scene-neighbor .blessing-text {
+    font-size: 1.3rem;
+    line-height: 2;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(220, 237, 200, 0.3);
+    opacity: 0;
+    animation: zoomIn 1s ease-out 1.5s forwards;
+}
+
+/* 房屋装饰 */
+.scene-neighbor .stars {
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6rem;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.scene-neighbor .stars::before {
+    content: '🏘️';
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 控制按钮 */
+.scene-neighbor .controls {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    gap: 15px;
+    z-index: 100;
+}
+
+.scene-neighbor .btn-control {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.scene-neighbor .btn-control:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(168, 224, 99, 0.5);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .scene-neighbor .blessing-content {
+        padding: 40px 20px;
+    }
+    
+    .scene-neighbor .blessing-text {
+        font-size: 1.1rem;
+        padding: 20px;
+    }
+    
+    .scene-neighbor .stars {
+        font-size: 4rem;
+    }
+    
+    .scene-neighbor .controls {
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
+    }
+    
+    .scene-neighbor .btn-control {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+}
+

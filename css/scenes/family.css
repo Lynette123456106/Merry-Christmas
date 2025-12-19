@@ -1,0 +1,143 @@
+/* 家人场景 - 温馨橙红 */
+
+body.scene-family {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.scene-family .scene-container {
+    background: radial-gradient(circle at 50% 50%, rgba(255, 152, 0, 0.3), transparent);
+}
+
+.scene-family .blessing-content {
+    position: relative;
+    text-align: center;
+    padding: 60px 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.scene-family .sender-name {
+    font-size: 1.2rem;
+    color: #fff8e1;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: slideIn 1s ease-out 0.5s forwards;
+}
+
+.scene-family .relation-badge {
+    font-size: 1.5rem;
+    color: #ffcc80;
+    margin-bottom: 30px;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideIn 1s ease-out 1s forwards;
+}
+
+.scene-family .blessing-text {
+    font-size: 1.3rem;
+    line-height: 2;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 152, 0, 0.3);
+    opacity: 0;
+    animation: slideIn 1s ease-out 1.5s forwards;
+}
+
+/* 壁炉装饰 */
+.scene-family .fireplace {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 8rem;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.scene-family .fireplace::before {
+    content: '🔥';
+    animation: flicker 2s ease-in-out infinite;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1.1);
+    }
+}
+
+/* 控制按钮 */
+.scene-family .controls {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    gap: 15px;
+    z-index: 100;
+}
+
+.scene-family .btn-control {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.scene-family .btn-control:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.5);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .scene-family .blessing-content {
+        padding: 40px 20px;
+    }
+    
+    .scene-family .blessing-text {
+        font-size: 1.1rem;
+        padding: 20px;
+    }
+    
+    .scene-family .fireplace {
+        font-size: 5rem;
+    }
+    
+    .scene-family .controls {
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
+    }
+    
+    .scene-family .btn-control {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+}
+

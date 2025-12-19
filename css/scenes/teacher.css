@@ -1,0 +1,131 @@
+/* 师生场景 - 书香深蓝 */
+
+body.scene-teacher {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.scene-teacher .scene-container {
+    background: radial-gradient(circle at 50% 50%, rgba(79, 172, 254, 0.3), transparent);
+}
+
+.scene-teacher .blessing-content {
+    position: relative;
+    text-align: center;
+    padding: 60px 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.scene-teacher .sender-name {
+    font-size: 1.2rem;
+    color: #e1f5fe;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: slideInLeft 1s ease-out 0.5s forwards;
+}
+
+.scene-teacher .relation-badge {
+    font-size: 1.5rem;
+    color: #b3e5fc;
+    margin-bottom: 30px;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideInLeft 1s ease-out 1s forwards;
+}
+
+.scene-teacher .blessing-text {
+    font-size: 1.3rem;
+    line-height: 2;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(179, 229, 252, 0.3);
+    opacity: 0;
+    animation: slideInLeft 1s ease-out 1.5s forwards;
+}
+
+/* 书本装饰 */
+.scene-teacher .stars {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
+    opacity: 0.15;
+    z-index: 1;
+}
+
+.scene-teacher .stars::before {
+    content: '📚';
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 控制按钮 */
+.scene-teacher .controls {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    gap: 15px;
+    z-index: 100;
+}
+
+.scene-teacher .btn-control {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.scene-teacher .btn-control:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.5);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .scene-teacher .blessing-content {
+        padding: 40px 20px;
+    }
+    
+    .scene-teacher .blessing-text {
+        font-size: 1.1rem;
+        padding: 20px;
+    }
+    
+    .scene-teacher .stars {
+        font-size: 5rem;
+    }
+    
+    .scene-teacher .controls {
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
+    }
+    
+    .scene-teacher .btn-control {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+}
+
